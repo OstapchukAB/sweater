@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -29,7 +31,7 @@ public class GreetingController {
         model.put("messages",messages);
         return "main";
     }
-    @PostMapping
+    @PostMapping("addition")
     public String add(@RequestParam String text, @RequestParam String tag,Map<String,Object> model ){
         Message message=new Message(text,tag);
         messageRepo.save(message);
@@ -37,6 +39,14 @@ public class GreetingController {
         Iterable<Message> messages=messageRepo.findAll();
         model.put("messages",messages);
 
+        return "main";
+
+    }
+
+    @PostMapping("filter")
+    public String add(@RequestParam String filter,Map<String,Object> model ){
+        List<Message> messages = messageRepo.findByTag(filter);
+        model.put("messages",messages);
         return "main";
 
     }
