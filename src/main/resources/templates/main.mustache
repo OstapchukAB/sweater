@@ -1,33 +1,43 @@
 <html>
 <body>
-<div>
-    <form method="post" action="/logout" >
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        <input type="submit" value="Sign Out"/>
-    </form>
-</div>
-<div>
-    <form method="post" action="addition">
-        <input type="text" name="text" placeholder="Введите сообщение"/>
-        <input type="text" name="tag" placeholder="Тэг">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        <button type="submit">Добавить</button>
-    </form>
-</div>
-<div>Список сообщений</div>
+    <div>
+        <form method="post" action="/logout" >
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+    <div>
+        <form method="post" action="addition">
+            <input type="text" name="text" placeholder="Введите сообщение"/>
+            <input type="text" name="tag" placeholder="Тэг">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+    <div>
+        <form method="post" action="deletes">
+            <input type="text" name="tag" placeholder="Тэг">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <button type="submit">Удалить</button>
+        </form>
+    </div>
+    <div>Список сообщений</div>
     <form method="post" action="filter">
-        <input type="text" name="filter" >
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        <button type="submit">Найти</button>
-
-
+            <input type="text" name="filter" >
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <button type="submit">Найти</button>
     </form>
+    <form method="post" action="view_all">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button type="submit" >Показать всё</button>
+    </form>
+
     {{#messages}}
     <div>
-        <b>{{id}}</b>
-        <span>{{text}}</span>
-        <i>{{tag}}</i>
-        {{/messages}}
+            <b>{{id}}</b>
+            <span>{{text}}</span>
+            <i>{{tag}}</i>
+    {{/messages}}
     </div>
 </body>
 </html>
