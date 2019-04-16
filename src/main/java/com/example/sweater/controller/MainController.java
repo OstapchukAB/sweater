@@ -37,7 +37,7 @@ public class MainController {
 
     }
 
-    @PostMapping("deletes")
+    @PostMapping("delete")
     public String delete(@RequestParam String tag){
         List<Message> messages = messageRepo.findByTag(tag);
         for(Message m:messages) {
@@ -48,7 +48,7 @@ public class MainController {
     }
 
     @PostMapping("view_all")
-    public String add(Map<String,Object> model ){
+    public String view_all(Map<String,Object> model ){
          Iterable<Message> messages=messageRepo.findAll();
          model.put("messages",messages);
          return "main";
@@ -56,7 +56,7 @@ public class MainController {
     }
 
     @PostMapping("filter")
-    public String add(@RequestParam String tag,Map<String,Object> model ){
+    public String filter(@RequestParam String tag,Map<String,Object> model ){
         List<Message> messages = messageRepo.findByTag(tag);
         model.put("messages",messages);
         return "main";

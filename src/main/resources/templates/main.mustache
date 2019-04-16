@@ -15,15 +15,15 @@
         </form>
     </div>
     <div>
-        <form method="post" action="deletes">
-            <input type="text" name="tag" placeholder="Тэг">
+        <form method="post" action="delete">
+            <input type="text" name="tag" placeholder="Введите Тэг">
             <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
             <button type="submit">Удалить</button>
         </form>
     </div>
-    <div>Список сообщений</div>
+
     <form method="post" action="filter">
-            <input type="text" name="tag" >
+            <input type="text" name="tag"  placeholder="Введите Тэг">
             <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
             <button type="submit">Найти</button>
     </form>
@@ -31,7 +31,7 @@
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <button type="submit" >Показать всё</button>
     </form>
-
+    <div>Список сообщений</div>
     {{#messages}}
     <div>
             <b>{{id}}</b>
