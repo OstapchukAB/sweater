@@ -56,8 +56,8 @@ public class MainController {
     }
 
     @PostMapping("filter")
-    public String add(@RequestParam String filter,Map<String,Object> model ){
-        List<Message> messages = messageRepo.findByTag(filter);
+    public String add(@RequestParam String tag,Map<String,Object> model ){
+        List<Message> messages = messageRepo.findByTag(tag);
         model.put("messages",messages);
         return "main";
 
