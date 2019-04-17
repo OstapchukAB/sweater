@@ -31,12 +31,14 @@
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <button type="submit" >Показать всё</button>
     </form>
+
     <div>Список сообщений</div>
     {{#messages}}
     <div>
             <b>{{id}}</b>
             <span>{{text}}</span>
             <i>{{tag}}</i>
+        <strong>{{authorName}}</strong>
     {{/messages}}
     </div>
 </body>
