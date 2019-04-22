@@ -21,14 +21,26 @@
 </form>
 
 <div>Список сообщений</div>
-<#list messages as message>
 <div>
-    <b>${message.id}</b>
-    <span>${message.text}</span>
-    <i>${message.tag}</i>
-    <strong>${message.authorName}</strong>
-</div>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>TEXT</th>
+        <th>TAG</th>
+        <th>UserName</th>
+    </tr>
+<#list messages as message>
+
+    <tr>
+    <td>${message.id}</td>
+    <td>${message.text}</td>
+    <td>${message.tag}</td>
+    <td>${message.authorName}</td>
+    </tr>
+
 <#else>
 <p>No message
 </#list>
+</table>
+</div>
 </@c.page>
