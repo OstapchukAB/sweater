@@ -15,6 +15,7 @@
 </div>
 
 
+
 <form method="get" action="/main">
     <input type="text" name="filter" placeholder="Введите тэг" >
     <button type="submit">Найти</button>

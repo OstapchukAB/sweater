@@ -23,6 +23,7 @@ public class MainController {
     @GetMapping("/")
     public String greeting(Map< String, Object> model)
     {
+
         return "greeting";
     }
 
@@ -55,8 +56,9 @@ public class MainController {
         return "main";
     }
 
-   /* @PostMapping("delete")
-    public String delete(@RequestParam String tag,Model model){
+
+  /*  @PostMapping("/del")
+    public String del(@RequestParam String tag,Model model){
         List<Message> mess = messageRepo.findByTag(tag);
         for(Message m:mess) {
             messageRepo.delete(m);
@@ -68,8 +70,8 @@ public class MainController {
         return "main";
 
     }
-*/
 
+*/
 
 
 
