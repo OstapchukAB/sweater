@@ -1,7 +1,12 @@
 <#import "parts/common.ftl" as c>
+<#import "parts/login.ftl" as l>
+
+<div>
+<@l.logout/>
 
 <@c.page>
 User editor
+</div>
 
 <form action="/user" method="post">
     <input type="text" name="username" value="${user.username}">

@@ -1,8 +1,12 @@
 <#import "parts/common.ftl" as c>
+<#import "parts/login.ftl" as l>
 
-<@c.page>
+<div>
+    <@l.logout/>
+    <@c.page>
 List of users
-<table xmlns="http://www.w3.org/1999/html">
+</div>
+    <table xmlns="http://www.w3.org/1999/html">
     <thead>
     <tr>
         <th>Name</th>
