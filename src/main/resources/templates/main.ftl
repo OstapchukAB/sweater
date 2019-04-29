@@ -2,6 +2,7 @@
 <#import "parts/login.ftl" as l>
 
 <@c.page>
+<p> Hello, ${users.username}!
 <div>
 <@l.logout />
     <span><a href="/user">User list</a> </span>
@@ -21,6 +22,7 @@
     <input type="text" name="filter" placeholder="Введите тэг" >
     <button type="submit">Найти</button>
 </form>
+
 
 <div>Список сообщений</div>
 <div>

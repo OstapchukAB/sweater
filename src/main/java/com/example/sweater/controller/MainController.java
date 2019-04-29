@@ -3,6 +3,7 @@ package com.example.sweater.controller;
 import com.example.sweater.domain.Message;
 import com.example.sweater.domain.User;
 import com.example.sweater.repos.MessageRepo;
+import com.example.sweater.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -20,15 +21,19 @@ public class MainController {
     @Autowired
     private MessageRepo messageRepo;
 
+
     @GetMapping("/")
-    public String greeting(Map< String, Object> model)
+    public String greeting(Model model)
     {
 
-        return "greeting";
+
+        return "redirect:/main";
     }
 
     @GetMapping("/main")
-    public String main(@RequestParam(required = false, defaultValue = "") String filter,
+    public String main(
+            @AuthenticationPrincipal User user,
+            @RequestParam(required = false, defaultValue = "") String filter,
             Model model){
         Iterable<Message> messages =messageRepo.findAll();
         if (filter !=null && !filter.isEmpty()) {
@@ -36,6 +41,7 @@ public class MainController {
         }
         model.addAttribute("messages",messages);
         model.addAttribute("filter",filter);
+        model.addAttribute("users",user);
         return "main";
     }
 

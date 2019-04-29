@@ -2,8 +2,14 @@
 <#import "parts/login.ftl" as l>
 
 <div>
+    <div>
+        <a href="/main">Main page</a>
+    </div>
     <@l.logout/>
     <@c.page>
+
+    <div><a href="/registration">Add new user</a></div>
+
 List of users
 </div>
     <table xmlns="http://www.w3.org/1999/html">
@@ -24,4 +30,5 @@ List of users
     </#list>
     </tbody>
 </table>
+
 </@c.page>
