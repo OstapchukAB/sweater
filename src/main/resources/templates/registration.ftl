@@ -2,6 +2,10 @@
 <#import "parts/login.ftl" as l>
 
 <div>
+    <div>
+        <a href="/main">Main page</a>
+    </div>
+
     <@l.logout/>
     <b>Add new user</b>
     <@c.page>

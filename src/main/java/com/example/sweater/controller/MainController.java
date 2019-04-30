@@ -25,8 +25,6 @@ public class MainController {
     @GetMapping("/")
     public String greeting(Model model)
     {
-
-
         return "redirect:/main";
     }
 
@@ -56,7 +54,7 @@ public class MainController {
         messageRepo.save(message);
 
         Iterable<Message> messages = messageRepo.findAll();
-
+        model.put("users",user);
         model.put("messages", messages);
 
         return "main";
